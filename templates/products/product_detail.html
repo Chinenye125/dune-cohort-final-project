@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}{{ product.name }} - Lucy's Catering Hub{% endblock %}
+
+{% block content %}
+
+<div class="product-detail-container">
+
+    <!-- PRODUCT CARD -->
+    <div class="product-detail-card">
+
+        <!-- IMAGE -->
+        <div class="product-image">
+            {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            {% else %}
+                <img src="{% static 'images/default.jpg' %}" alt="No image">
+            {% endif %}
+        </div>
+
+        <!-- INFO -->
+        <div class="product-detail-info">
+
+            <h2>{{ product.name }}</h2>
+
+            <p class="category">
+                Category: {{ product.category.name }}
+            </p>
+
+            <p class="price">
+                ₦{{ product.price }}
+            </p>
+
+            <!-- STOCK -->
+            {% if product.stock > 0 %}
+                <p class="in-stock">In Stock</p>
+            {% else %}
+                <p class="out-stock">Out of Stock</p>
+            {% endif %}
+
+            <!-- DESCRIPTION -->
+            <p class="description">
+                {{ product.description }}
+            </p>
+
+            <!-- BUTTON -->
+            <a href="{% url 'product_list' %}" class="back-btn">
+                ← Back to Products
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

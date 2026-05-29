@@ -1,0 +1,161 @@
+
+{% extends 'base.html' %}
+{% load static %}
+<!-- This means home.html will inherit the layout from base.html -->
+
+
+{% block title %}
+Home - Lucy's Food Hub
+{% endblock %}
+<!-- This changes the browser tab title -->
+
+
+{% block content %}
+<!-- Everything inside this block appears inside base.html -->
+
+
+<!-- HERO SECTION -->
+<section class="hero">
+
+    <div class="hero-text">
+
+        <!-- Main heading -->
+        <h1>Food For Every Occasion</h1>
+
+        <!-- Short description -->
+        <p>
+            Delicious meals, pastries, cakes and refreshing drinks
+            prepared with love and delivered fresh to your doorstep.
+        </p>
+
+        <!-- Call-to-action button -->
+        <a href="{% url 'product_list' %}" class="shop-btn">Order Now</a>
+
+    </div>
+
+
+    <!-- Hero image
+   <div class="hero-images">
+
+        <img src="{% static 'images/hero-collage.jpeg' %}" alt="Food Hero">
+
+    </div> -->
+
+</section>
+
+
+
+<!-- CATEGORIES SECTION -->
+<section class="categories">
+
+    <h2>Shop By Categories</h2>
+
+    <div class="category-container">
+
+        <!-- Category card -->
+        <div class="category-card">
+            <h3>Meals</h3>
+        </div>
+
+        <div class="category-card">
+            <h3>Pastries</h3>
+        </div>
+
+        <div class="category-card">
+            <h3>Cakes</h3>
+        </div>
+
+        <div class="category-card">
+            <h3>Drinks</h3>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- FEATURED PRODUCTS -->
+<section class="featured-products">
+
+    <h2>Featured Products</h2>
+
+    <div class="product-container">
+
+        <!-- Product card -->
+        <div class="product-card">
+            <h3>Jollof Rice</h3>
+            <p>₦4,500</p>
+
+            <!-- Add to cart button -->
+            <button>Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <h3>Small Chops</h3>
+            <p>₦3,000</p>
+            <button>Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <h3>Chocolate Cake</h3>
+            <p>₦12,000</p>
+            <button>Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <h3>Fruit Drink</h3>
+            <p>₦2,500</p>
+            <button>Add to Cart</button>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- TESTIMONIAL SECTION -->
+<section class="testimonials">
+
+    <h2>What Our Customers Say</h2>
+
+    <div class="testimonial-container">
+
+        <!-- Customer review -->
+        <div class="testimonial-card">
+
+            <p>
+                "Absolutely delicious and always fresh!"
+            </p>
+
+            <h4>- Ada</h4>
+
+        </div>
+
+        <div class="testimonial-card">
+
+            <p>
+                "The cakes are beautiful and taste amazing."
+            </p>
+
+            <h4>- Chioma</h4>
+
+        </div>
+
+        <div class="testimonial-card">
+
+            <p>
+                "Fast delivery and excellent customer service."
+            </p>
+
+            <h4>- David</h4>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+<!-- End of content block -->

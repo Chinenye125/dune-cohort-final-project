@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Products{% endblock %}
+
+{% block content %}
+
+<div class="products-container">
+
+    <!-- PAGE TITLE -->
+    <h2 class="products-title">
+        Our Delicious Foods
+    </h2>
+
+
+    <!-- SEARCH FORM -->
+    <form method="GET" class="search-form">
+
+        <input type="text"
+               name="search"
+               placeholder="Search your products here..."
+               value="{{ query }}">
+
+        <button type="submit">
+            Search
+        </button>
+
+    </form>
+
+
+    <!-- PRODUCTS GRID -->
+    <div class="products-grid">
+
+        <!-- LOOP THROUGH PRODUCTS -->
+        {% for product in products %}
+
+        <!-- PRODUCT CARD -->
+        <div class="product-card">
+
+            <!-- IMAGE -->
+            {% if product.image %}
+                <img src="{{ product.image.url }}"
+                     alt="{{ product.name }}">
+            {% else %}
+                <img src="{% static 'images/default.jpg' %}"
+                     alt="Default image">
+            {% endif %}
+
+            <!-- PRODUCT INFO -->
+            <div class="product-info">
+
+              
+                <!-- PRODUCT NAME -->
+                <h3 class="product-name">{{ product.name }}</h3>
+
+                <!-- CATEGORY -->
+                <p>
+                    {{ product.category.name }}
+                </p>
+
+                <!-- PRICE -->
+                <p class="product-price">
+                    ₦{{ product.price }}
+                </p>
+
+                  
+                <div class="product-footer">
+
+                    {% if product.stock > 0 %}
+                    <span style="color: green; font-weight: bold; margin-bottom: 15px;">✔ In Stock</span>
+                  {% else %}
+                    <span style="color: red; font-weight: bold; margin-bottom: 15px;">✖ Out of Stock</span>
+                    {% endif %}
+
+                    <a href="{% url 'product_detail' product.pk %}" class="view-btn">
+                        View Product
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- EMPTY MESSAGE -->
+        {% empty %}
+
+            <p>No products found.</p>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

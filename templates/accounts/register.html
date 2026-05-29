@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Register - Lucy's Catering Hub{% endblock %}
+
+{% block content %}
+<div class="form-container">
+  <h2>Create Account</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Register</button>
+  </form>
+
+</div>
+{% endblock %}
