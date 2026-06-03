@@ -50,24 +50,23 @@ Home - Lucy's Food Hub
 
     <h2>Shop By Categories</h2>
 
-    <div class="category-container">
-
+    <div class="category-grid">
         <!-- Category card -->
-        <div class="category-card">
+        <a href="{% url 'category_filter' 'Cooked Foods' %}" class="cat-card meals" style="background-image: url('static/images/meal.jpg'); background-size: cover; background-position: center;">
             <h3>Meals</h3>
-        </div>
+        </a>
 
-        <div class="category-card">
+        <a href="{% url 'category_filter' 'Pasteries' %}" class="cat-card pastries" style="background-image: url('static/images/pastry.jpg'); background-size: cover; background-position: center;">
             <h3>Pastries</h3>
-        </div>
+        </a>
 
-        <div class="category-card">
+        <a href="{% url 'category_filter' 'Cakes' %}" class="cat-card cakes" style="background-image: url('static/images/im-cake.jpeg'); background-size: cover; background-position: center;">
             <h3>Cakes</h3>
-        </div>
+        </a>
 
-        <div class="category-card">
+        <a href="{% url 'category_filter' 'Drinks' %}" class="cat-card drinks" style="background-image: url('static/images/drink.jpg'); background-size: cover; background-position: center;">
             <h3>Drinks</h3>
-        </div>
+        </a>
 
     </div>
 
@@ -83,7 +82,7 @@ Home - Lucy's Food Hub
     <div class="product-container">
 
         <!-- Product card -->
-        <div class="product-card">
+        <div class="product-cards jellof-rice" style="background-image: url('static/images/jellof.jpg'); background-size: cover; background-position: center;">
             <h3>Jollof Rice</h3>
             <p>₦4,500</p>
 
@@ -91,19 +90,19 @@ Home - Lucy's Food Hub
             <button>Add to Cart</button>
         </div>
 
-        <div class="product-card">
+        <div class="product-cards small-chops" style="background-image: url('static/images/small-chops.jpeg'); background-size: cover; background-position: center;">
             <h3>Small Chops</h3>
             <p>₦3,000</p>
             <button>Add to Cart</button>
         </div>
 
-        <div class="product-card">
+        <div class="product-cards chocolate-cake" style="background-image: url('static/images/chocolate-cake.png'); background-size: cover; background-position: center;">
             <h3>Chocolate Cake</h3>
             <p>₦12,000</p>
             <button>Add to Cart</button>
         </div>
 
-        <div class="product-card">
+        <div class="product-cards fruit-drink" style="background-image: url('static/images/fruit-drink.png'); background-size: cover; background-position: center;">
             <h3>Fruit Drink</h3>
             <p>₦2,500</p>
             <button>Add to Cart</button>

@@ -29,6 +29,19 @@
           <a href="#">Categories</a>
           <a href="#">Contact</a>
           <a href="#">About</a>
+
+           <!-- USER/LOGIN -->
+          {% if user.is_authenticated %}
+
+            <a href="{% url 'logout' %}">Logout</a>
+
+          {% else %}
+
+            <a href="{% url 'login' %}">Login</a>
+
+            <a href="{% url 'register' %}">Register</a>
+
+          {% endif %}
  
         </div>
 
@@ -38,10 +51,7 @@
             <!-- SEARCH ICON -->
            <span>🔍</span>
 
-            <!-- USER/LOGIN -->
-              <a href="#">👤</a>
-
-             
+           
             <!-- CART ICON -->
            <span>🛒</span>
 
@@ -56,8 +66,31 @@
     
     <!-- PAGE CONTENT GOES HERE -->
     <main style="flex:1;">
-    {% block content %}
-    {% endblock %}
+      {% if messages %}
+        <div id="msg-container">
+          {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+             {{ message }}
+            </div>
+          {% endfor %}
+        </div>
+        <script>
+          setTimeout(function () {
+            let messages = document.querySelectorAll('.alert');
+              messages.forEach(msg => {
+                msg.style.transition = "0.5s";
+                msg.style.opacity = "0";
+              setTimeout(() => msg.remove(), 500);
+            });
+          }, 4000);
+        </script>
+      {% endif %}
+      {% block content %}
+      {% endblock %}
+
+
+      
+
     </main>
 
     <footer>
@@ -65,5 +98,14 @@
     </footer>
 
     <script src="{% static 'js/main.js' %}"></script>
+
+    <script>
+       document.addEventListener("click", function (e) {
+        if (e.target.tagName === "A" || e.target.tagName === "BUTTON") {
+          e.target.blur();
+        }
+       });
+      </script>
+
 </body>
 </html>

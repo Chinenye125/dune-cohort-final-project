@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Product Form{% endblock %}
+
+{% block content %}
+
+<div class="form-page">
+
+    <div class="form-card">
+
+        <h2 class="form-title">
+            {% if form.instance.pk %}
+                Edit Product
+            {% else %}
+                Add New Product
+            {% endif %}
+        </h2>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="form-fields">
+                {{ form.as_p }}
+            </div>
+
+            <button type="submit" class="btn-submit">
+                {% if form.instance.pk %}
+                    Update Product
+                {% else %}
+                    Save Product
+                {% endif %}
+            </button>
+
+            <a href="{% url 'product_list' %}" class="btn-cancel">
+                Cancel
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

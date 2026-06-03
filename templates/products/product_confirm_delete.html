@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Delete Product{% endblock %}
+
+{% block content %}
+
+<div class="form-page">
+
+    <div class="delete-card">
+
+        <h2>⚠️ Delete Product</h2>
+
+        <p style="margin-top: 15px;">
+            Are you sure you want to delete
+            <strong>{{ product.name }}</strong>?
+        </p>
+
+        <p class="warning-text">
+            This action cannot be undone.
+        </p>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <button type="submit" class="btn-delete">
+                Yes, Delete Product
+            </button>
+
+            <a href="{% url 'product_list' %}" class="btn-cancel" onclick="this.blur()">
+                Cancel
+            </a>
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

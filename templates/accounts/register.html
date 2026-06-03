@@ -3,13 +3,43 @@
 {% block title %}Register - Lucy's Catering Hub{% endblock %}
 
 {% block content %}
-<div class="form-container">
-  <h2>Create Account</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Register</button>
-  </form>
+<div class="form-page">
+  <div class="form-card">
 
+    <h2 class="form-title">Create Account</h2>
+
+    <form method="post" class="form-fields">
+      {% csrf_token %}
+
+      <p>
+        <label>Username</label>
+        {{ form.username }}
+      </p>
+
+      <p>
+        <label>Email</label>
+        {{ form.email }}
+      </p>
+
+      <p>
+        <label>Password</label>
+        {{ form.password1 }}
+      </p>
+
+      <p>
+        <label>Confirm Password</label>
+        {{ form.password2 }}
+      </p>
+
+      <button type="submit" class="btn-submit">Register</button>
+
+      <p class="form-switch-text">
+        Already have an account?
+        <a href="{% url 'login' %}">Login here</a>
+      </p>
+
+    </form>
+
+  </div>
 </div>
 {% endblock %}
