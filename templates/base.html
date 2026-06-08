@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 
-<body style="display:flex; flex-direction:column; min-height:100vh;">
 
 
 
@@ -18,7 +17,7 @@
 
         <!-- LOGO -->
        <a href="/" class="logo">
-        <img src="{% static 'images/logo.png' %}" alt="Lucy's Food Hub Logo">
+        <img src="{% static 'images/logos.jpeg' %}" alt="Lucy's Food Hub Logo">
        </a>
 
         <!-- NAV LINKS -->
@@ -26,9 +25,9 @@
 
           <a href="/">Home</a>
           <a href="{% url 'product_list' %}">Shop</a>
-          <a href="#">Categories</a>
+          <a href="{% url 'category_list' %}">Categories</a>
           <a href="#">Contact</a>
-          <a href="#">About</a>
+          <a href="{% url 'about' %}">About</a>
 
            <!-- USER/LOGIN -->
           {% if user.is_authenticated %}
@@ -65,7 +64,7 @@
     </nav>
     
     <!-- PAGE CONTENT GOES HERE -->
-    <main style="flex:1;">
+    <main style="display: block;">
       {% if messages %}
         <div id="msg-container">
           {% for message in messages %}

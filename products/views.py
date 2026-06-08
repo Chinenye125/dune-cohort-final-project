@@ -14,6 +14,7 @@ from django.db.models.functions import Lower, Replace
 def admin_only(user):
     return user.is_authenticated and user.is_staff
 
+
 def product_list(request):
     # get search input
     query = request.GET.get('search', '').strip()
@@ -57,6 +58,15 @@ def product_detail(request, pk):
 def category_filter(request, category_name):
     products = Product.objects.filter(category__name__iexact=category_name).order_by('-created_at')
     return render(request, 'products/product_list.html', {'products': products, 'category_name': category_name})
+
+def category_list(request):
+    categories = Category.objects.all().order_by('-id')
+    return render(request, 'products/category_list.html', {'categories': categories})
+
+def category_detail(request, pk):
+    category = get_object_or_404(Category, pk=pk)
+    products = Product.objects.filter(category=category).order_by('-created_at')
+    return render(request, 'products/category_detail.html', {'products': products, 'category': category})
 
 @login_required
 @user_passes_test(admin_only)
@@ -113,9 +123,6 @@ class ProductListAPIView(APIView):
         products = Product.objects.all()
         serializer = ProductSerializer(products, many=True)
         return Response(serializer.data)
-    
-
-
     def post(self, request):
         if not request.user.is_staff:
             return Response(
@@ -126,12 +133,11 @@ class ProductListAPIView(APIView):
         serializer = ProductSerializer(data=request.data)
 
         if serializer.is_valid():
-            serializer.save()
+            serializer.save(created_by=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
-
 
 
 class ProductDetailAPIView(APIView):

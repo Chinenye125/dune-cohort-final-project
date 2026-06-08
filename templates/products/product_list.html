@@ -41,6 +41,13 @@
 
     </form>
 
+    {% if user.is_authenticated and user.is_staff %}
+       <div style="text-align: right; margin-bottom: 20px;">
+          <a href="{% url 'product_create' %}" class="create-btn">
+            + Add New Product
+           </a>
+        </div>
+    {% endif %}
 
     <!-- PRODUCTS GRID -->
     <div class="products-grid">

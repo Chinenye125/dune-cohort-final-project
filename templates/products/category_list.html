@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="categories-page">
+
+  {% for category in categories %}
+
+    {% if category.image %}
+      <a href="{% url 'category_detail' category.pk %}"
+        class="category-card"
+        style="background-image: url('{{ category.image.url }}');">
+    {% else %}
+      <a href="{% url 'category_detail' category.pk %}"
+        class="category-card"
+        style="background-image: url('{% static 'images/default.jpg' %}');">
+    {% endif %}
+
+
+      <div class="category-overlay">
+       <h2>{{ category.name }}</h2>
+      </div>
+
+    </a>
+
+  {% endfor %}
+
+</div>
+
+{% endblock %}

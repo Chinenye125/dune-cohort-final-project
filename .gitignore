@@ -10,3 +10,5 @@ db.sqlite3
 .vscode/
 staticfiles/
 media/
+
+# eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgwNTE4NjIzLCJpYXQiOjE3ODA1MTgzMjMsImp0aSI6ImYzMWEwN2U4YjczMjQ0N2RhOTI1NmFmODdlOGQ4MGE0IiwidXNlcl9pZCI6IjEifQ.ioLauRGmJ2aFBouK955UJZ8FCxi7SNmHHStLkkxAxf0

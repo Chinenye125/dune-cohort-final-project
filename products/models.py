@@ -13,6 +13,12 @@ class Category(models.Model):
     # Category name
     name = models.CharField(max_length=100)
 
+    image = models.ImageField(
+        upload_to='categories/',
+        blank=True, 
+        null=True
+    )
+
 
     # What displays in admin panel
     def __str__(self):
