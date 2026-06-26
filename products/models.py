@@ -79,10 +79,6 @@ class Product(models.Model):
     available = models.BooleanField(default=True)
 
 
-    # Save date product was created
-    created_at = models.DateTimeField(auto_now_add=True)
-
-
     # What displays in admin panel
     def __str__(self):
         return self.name
